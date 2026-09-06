@@ -1,0 +1,203 @@
+/* Theme-specific updates for all components */
+
+.score-number {
+    color: var(--accent-color) !important;
+}
+
+.score-max {
+    color: var(--text-tertiary) !important;
+}
+
+.display-star.filled {
+    color: var(--accent-color) !important;
+}
+
+.display-star.empty {
+    color: var(--empty-star) !important;
+}
+
+.rating-total {
+    color: var(--accent-color) !important;
+}
+
+.breakdown-label {
+    color: var(--accent-color) !important;
+}
+
+.breakdown-count {
+    color: var(--accent-color) !important;
+}
+
+.breakdown-bar {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-dark) 100%) !important;
+}
+
+.breakdown-bar-container {
+    background: linear-gradient(90deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%) !important;
+}
+
+.form-title {
+    color: var(--accent-color) !important;
+}
+
+.form-instructions p {
+    color: var(--text-primary) !important;
+}
+
+.form-group label {
+    color: var(--accent-color) !important;
+}
+
+.star-input {
+    color: var(--empty-star) !important;
+}
+
+.star-input:hover,
+.star-input.active {
+    color: var(--accent-color) !important;
+}
+
+.form-input,
+.form-textarea {
+    background: var(--bg-tertiary) !important;
+    color: var(--accent-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.char-counter {
+    color: var(--text-tertiary) !important;
+}
+
+.submit-button {
+    background: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+.reviews-header h3 {
+    color: var(--accent-color) !important;
+}
+
+.reviews-count {
+    background: var(--bg-tertiary) !important;
+    color: var(--accent-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.review-item {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.review-avatar {
+    background: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+.review-username {
+    color: var(--accent-color) !important;
+}
+
+.review-gift {
+    color: var(--text-tertiary) !important;
+}
+
+.review-star {
+    color: var(--accent-color) !important;
+}
+
+.review-star.empty {
+    color: var(--empty-star) !important;
+}
+
+.review-text {
+    color: var(--text-primary) !important;
+}
+
+.review-date {
+    color: var(--text-tertiary) !important;
+}
+
+.reviews-footer {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%) !important;
+}
+
+.reviews-footer p,
+.reviews-footer span {
+    color: var(--bg-primary) !important;
+}
+
+.gift-select-box {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.gift-select-text {
+    color: var(--text-tertiary) !important;
+}
+
+.gift-select-text.selected {
+    color: var(--accent-color) !important;
+}
+
+.gift-arrow {
+    color: var(--text-tertiary) !important;
+}
+
+.gift-dropdown {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.gift-search-wrapper {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.gift-search-input {
+    background: var(--bg-tertiary) !important;
+    color: var(--accent-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.gift-option {
+    color: var(--accent-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.gift-option:hover {
+    background: var(--bg-secondary) !important;
+}
+
+.gift-options-list::-webkit-scrollbar-track {
+    background: var(--bg-tertiary) !important;
+}
+
+.gift-options-list::-webkit-scrollbar-thumb {
+    background: var(--accent-color) !important;
+}
+
+.gift-options-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-dark) !important;
+}
+
+.rating-statistics {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+    border-color: var(--border-color) !important;
+}
+
+.rating-main {
+    border-color: var(--border-color) !important;
+}
+
+.review-form {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+    border-color: var(--border-color) !important;
+}
+
+.reviews-section {
+    background: var(--bg-secondary) !important;
+}
+
+.header {
+    background: var(--bg-secondary) !important;
+}

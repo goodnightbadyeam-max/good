@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы GiftGarantors</title>
+    <!-- ?v= обновляется при правках: вебвью Telegram агрессивно кэширует статику по имени -->
+    <link rel="stylesheet" href="/reviewsite/styles.css?v=8">
+    <link rel="stylesheet" href="/reviewsite/theme-variables.css?v=8">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="review-card">
+            <!-- Logo/Welcome Section with Language Switcher -->
+            <div class="header">
+                <div class="logo-section">
+                    <img src="/reviewsite/images/lolz.png" alt="Logo" class="logo-image">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+                            <button type="button" class="lang-switch__btn is-active" data-lang="ru">RU</button>
+                            <button type="button" class="lang-switch__btn" data-lang="en">EN</button>
+                            <button type="button" class="lang-switch__btn" data-lang="zh">中文</button>
+                            <button type="button" class="lang-switch__btn" data-lang="ar">ع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rating Statistics Section -->
+            <div class="rating-statistics">
+                <div class="rating-main">
+                    <div class="rating-score">
+                        <span class="score-number">4.7</span>
+                        <span class="score-max">/5</span>
+                    </div>
+                    <div class="rating-stars-display">
+                        <span class="display-star filled">★</span>
+                        <span class="display-star filled">★</span>
+                        <span class="display-star filled">★</span>
+                        <span class="display-star filled">★</span>
+                        <span class="display-star empty">★</span>
+                    </div>
+                    <p class="rating-total"><span id="total-reviews-count">100</span> отзывов</p>
+                </div>
+
+                <div class="rating-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">5★</span>
+                        <div class="breakdown-bar-container">
+                            <div class="breakdown-bar" style="width: 66%;"></div>
+                        </div>
+                        <span class="breakdown-count">1 566</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">4★</span>
+                        <div class="breakdown-bar-container">
+                            <div class="breakdown-bar" style="width: 21%;"></div>
+                        </div>
+                        <span class="breakdown-count">505</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">3★</span>
+                        <div class="breakdown-bar-container">
+                            <div class="breakdown-bar" style="width: 7%;"></div>
+                        </div>
+                        <span class="breakdown-count">176</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">2★</span>
+                        <div class="breakdown-bar-container">
+                            <div class="breakdown-bar" style="width: 4%;"></div>
+                        </div>
+                        <span class="breakdown-count">92</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">1★</span>
+                        <div class="breakdown-bar-container">
+                            <div class="breakdown-bar" style="width: 2%;"></div>
+                        </div>
+                        <span class="breakdown-count">46</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Form -->
+            <div class="review-form">
+                <h3 class="form-title">Как оставить отзыв?</h3>
+                <div class="form-instructions">
+                    <p>1. Выберите оценку (1-5)</p>
+                    <p>2. Выберите подарок который вы продали/купили</p>
+                    <p>3. Напишите мини коментарий</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Оценка</label>
+                    <div class="star-rating">
+                        <svg class="star-input" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star-input" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star-input" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star-input" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star-input" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ник</label>
+                    <input type="text" class="form-input" id="nickname-input" placeholder="Ваш ник из Telegram" readonly style="background: #f5f5f5; cursor: not-allowed;">
+                </div>
+
+                <div class="form-group">
+                    <label>Подарок</label>
+                    <div class="gift-select-wrapper">
+                        <div class="gift-select-box" id="gift-select-box">
+                            <span class="gift-select-text" id="gift-select-text">Выбрать подарок</span>
+                            <span class="gift-arrow">▼</span>
+                        </div>
+                        <input type="hidden" id="gift-input-hidden">
+                        <div class="gift-dropdown" id="gift-dropdown">
+                            <div class="gift-search-wrapper">
+                                <input type="text" class="gift-search-input" id="gift-search-input" placeholder="Поиск подарка..." autocomplete="off">
+                            </div>
+                            <div class="gift-options-list" id="gift-options-list">
+                                <!-- Gift options will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Текст</label>
+                    <textarea class="form-textarea" id="text-input" placeholder="как прошла сделка в боте" rows="4" maxlength="50"></textarea>
+                    <div class="char-counter">
+                        <span id="char-count">0</span> / максимум 50 символов
+                    </div>
+                </div>
+
+                <div class="review-gate" id="review-gate" hidden></div>
+                <button class="submit-button">Опубликовать</button>
+            </div>
+
+            <!-- All Reviews Section -->
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    <h3>Все отзывы</h3>
+                    <span class="reviews-count" id="reviews-section-count">2 385</span>
+                </div>
+
+                <div id="reviews-container" class="reviews-list">
+                    <!-- Reviews will be inserted here by JavaScript -->
+                </div>
+
+                <div class="reviews-footer">
+                    <p>Вам показаны <span id="shown-reviews-count">100</span> отзывов из <span id="footer-total-count">2 385</span></p>
+                </div>
+                <div style="text-align:center;margin:14px 0 4px"><a href="https://t.me/otc_guard" target="_blank" data-manager-link>Поддержка: @otc_guard</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/reviewsite/script.js?v=8"></script>
+</body>
+</html>
