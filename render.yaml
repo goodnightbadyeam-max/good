@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: loizdealsbot
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start_simple.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: BOT_USERNAME
+        value: LoIzDealsbot
