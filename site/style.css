@@ -1,0 +1,1602 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #3dd68c;
+    --dark-green: #2eb872;
+    --text-light: #e5e5e5;
+    --text-gray: #a0a0a0;
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --bg-card: #121212;
+    --gradient-start: #3dd68c;
+    --gradient-end: #2eb872;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    color: var(--text-light);
+    line-height: 1.6;
+    background: var(--bg-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: var(--bg-darker);
+    box-shadow: 0 1px 3px rgba(61, 214, 140, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(61, 214, 140, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+.logo svg {
+    width: 32px;
+    height: 32px;
+    background: var(--text-dark);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-green);
+}
+
+.language-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.lang-btn {
+    padding: 6px 12px;
+    border: 1px solid rgba(61, 214, 140, 0.2);
+    background: var(--bg-card);
+    color: var(--text-light);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.lang-btn.active {
+    background: var(--primary-green);
+    color: #000;
+    border-color: var(--primary-green);
+}
+
+.lang-btn:hover {
+    border-color: var(--primary-green);
+}
+
+.telegram-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+
+.telegram-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background: var(--bg-dark);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 32px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -10px;
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.rating-text {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.rating-text strong {
+    color: var(--text-dark);
+}
+
+.stars {
+    font-size: 16px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.telegram-icon {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #3dd68c 0%, #2eb872 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 30px 60px rgba(61, 214, 140, 0.3);
+}
+
+/* Gifts Section */
+.gifts-section {
+    padding: 80px 0;
+    background: var(--bg-darker);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-light);
+}
+
+.section-header p {
+    font-size: 18px;
+    color: var(--text-gray);
+}
+
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.gift-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(61, 214, 140, 0.1);
+}
+
+.gift-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(61, 214, 140, 0.2);
+    border-color: rgba(61, 214, 140, 0.3);
+}
+
+.gift-image-wrapper {
+    position: relative;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Декоративные точки на фоне */
+.gift-image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 2px, transparent 2px),
+        radial-gradient(circle at 60% 70%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 40% 60%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gift-image-inner {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+/* Градиенты для внешних оберток */
+.plush-pepe-bg {
+    background: linear-gradient(135deg, #d4e4ff 0%, #c0d8ff 100%);
+}
+
+.plush-pepe-bg .gift-image-inner {
+    background: linear-gradient(135deg, #7c6be8 0%, #6456d4 100%);
+}
+
+.eternal-rose-bg {
+    background: linear-gradient(135deg, #c8f5f5 0%, #b0e8e8 100%);
+}
+
+.eternal-rose-bg .gift-image-inner {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.durov-cap-bg {
+    background: linear-gradient(135deg, #dfe4f0 0%, #cbd4e8 100%);
+}
+
+.durov-cap-bg .gift-image-inner {
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.mighty-arm-bg {
+    background: linear-gradient(135deg, #f5f3e8 0%, #e8e0c8 100%);
+}
+
+.mighty-arm-bg .gift-image-inner {
+    background: linear-gradient(135deg, #c9943a 0%, #a67520 100%);
+}
+
+.heroic-helmet-bg {
+    background: linear-gradient(135deg, #f0d4ff 0%, #e0c0ff 100%);
+}
+
+.heroic-helmet-bg .gift-image-inner {
+    background: linear-gradient(135deg, #9b6be8 0%, #7c56d4 100%);
+}
+
+.scared-cat-bg {
+    background: linear-gradient(135deg, #d8e0e8 0%, #c4d4e0 100%);
+}
+
+.scared-cat-bg .gift-image-inner {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+.gift-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+}
+
+.gift-image {
+    max-width: 140px;
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+}
+
+.gift-info {
+    padding: 0;
+}
+
+.gift-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-light);
+}
+
+.collectible {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* Advantages Section */
+.advantages-section {
+    padding: 80px 0;
+    background: var(--bg-dark);
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.advantage-card {
+    background: var(--bg-light);
+    padding: 32px 24px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.advantage-card:hover {
+    transform: translateY(-4px);
+}
+
+.advantage-icon {
+    margin-bottom: 16px;
+}
+
+.advantage-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.advantage-card p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* Process Section */
+.process-section {
+    padding: 80px 0;
+    background: var(--bg-darker);
+}
+
+.process-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 auto 16px;
+}
+
+.process-step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.process-step p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.process-connector {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #e5e7eb 50%, transparent 100%);
+    background-image: repeating-linear-gradient(90deg, rgba(61, 214, 140, 0.4) 0, rgba(61, 214, 140, 0.4) 8px, transparent 8px, transparent 16px);
+}
+
+.stats-banner {
+    background: linear-gradient(135deg, #3dd68c 0%, #2eb872 100%);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+    color: #000;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background: var(--bg-dark);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(61, 214, 140, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.faq-toggle {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--primary-green);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-answer p {
+    padding: 0 24px 24px;
+    color: var(--text-gray);
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-darker);
+    color: white;
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(61, 214, 140, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-text h1 {
+        font-size: 36px !important;
+    }
+    
+    .hero-text p {
+        font-size: 16px !important;
+    }
+    
+    .hero-image {
+        display: none;
+    }
+    
+    .gifts-section,
+    .advantages-section,
+    .process-section,
+    .faq-section {
+        padding: 50px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 32px !important;
+    }
+    
+    .section-header p {
+        font-size: 16px !important;
+    }
+    
+    .gifts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .gift-card {
+        padding: 16px;
+    }
+    
+    .gift-image-wrapper {
+        height: 200px;
+        padding: 20px;
+    }
+    
+    .gift-image-inner {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gift-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    .gift-info h3 {
+        font-size: 16px !important;
+    }
+    
+    .gift-info .collectible {
+        font-size: 13px !important;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .advantage-card {
+        padding: 24px 20px !important;
+    }
+    
+    .advantage-icon {
+        width: 48px !important;
+        height: 48px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .advantage-icon svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    .advantage-card h3 {
+        font-size: 16px !important;
+    }
+    
+    .advantage-card p {
+        font-size: 14px !important;
+    }
+    
+    .process-timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .process-connector {
+        width: 2px;
+        height: 40px;
+        background-image: repeating-linear-gradient(0deg, rgba(61, 214, 140, 0.4) 0, rgba(61, 214, 140, 0.4) 8px, transparent 8px, transparent 16px);
+    }
+    
+    .process-connector::before {
+        display: none;
+    }
+    
+    .step-number {
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 24px !important;
+    }
+    
+    .process-step h3 {
+        font-size: 16px;
+    }
+    
+    .process-step p {
+        font-size: 13px;
+    }
+    
+    .stats-banner {
+        padding: 32px 24px !important;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    
+    .stat {
+        flex: 0 0 calc(50% - 12px);
+    }
+    
+    .stat-number {
+        font-size: 32px !important;
+    }
+    
+    .stat-label {
+        font-size: 13px !important;
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Header */
+    .header {
+        padding: 12px 0;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .logo {
+        font-size: 16px;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .language-selector {
+        order: 2;
+        gap: 6px;
+    }
+    
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    
+    .telegram-btn {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 30px 0;
+    }
+    
+    .hero-text h1 {
+        font-size: 28px !important;
+        line-height: 1.3;
+    }
+    
+    .hero-text p {
+        font-size: 15px !important;
+        margin-bottom: 24px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px !important;
+        font-size: 15px !important;
+    }
+    
+    .rating {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 32px;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .rating-text {
+        font-size: 14px;
+    }
+    
+    /* Sections */
+    .gifts-section,
+    .advantages-section,
+    .process-section,
+    .faq-section {
+        padding: 40px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .section-label {
+        font-size: 12px;
+    }
+    
+    .section-header h2 {
+        font-size: 26px !important;
+        margin-bottom: 12px;
+    }
+    
+    .section-header p {
+        font-size: 15px !important;
+    }
+    
+    /* Gifts */
+    .gifts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .gift-card {
+        padding: 16px;
+    }
+    
+    .gift-image-wrapper {
+        height: 220px;
+        padding: 24px;
+    }
+    
+    .gift-image-inner {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .gift-image {
+        max-width: 110px;
+        max-height: 110px;
+    }
+    
+    .gift-badge {
+        top: 12px;
+        left: 12px;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .gift-info h3 {
+        font-size: 18px !important;
+    }
+    
+    .gift-info .collectible {
+        font-size: 14px !important;
+    }
+    
+    /* Advantages */
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .advantage-card {
+        padding: 20px 16px !important;
+    }
+    
+    .advantage-icon {
+        width: 44px !important;
+        height: 44px !important;
+    }
+    
+    .advantage-card h3 {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .advantage-card p {
+        font-size: 14px !important;
+    }
+    
+    /* Process */
+    .process-step h3 {
+        font-size: 15px;
+    }
+    
+    .process-step p {
+        font-size: 13px;
+    }
+    
+    .step-number {
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 22px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .stats-banner {
+        padding: 28px 20px !important;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat {
+        flex: 1 1 100%;
+    }
+    
+    .stat-number {
+        font-size: 28px !important;
+    }
+    
+    .stat-label {
+        font-size: 13px !important;
+    }
+    
+    /* FAQ */
+    .faq-question {
+        padding: 20px 16px;
+    }
+    
+    .faq-question h3 {
+        font-size: 15px;
+        padding-right: 12px;
+    }
+    
+    .faq-toggle {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+    
+    .faq-answer p {
+        padding: 0 16px 20px;
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 32px 0 16px;
+    }
+    
+    .footer-brand p {
+        font-size: 13px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .footer-column h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .footer-column a {
+        font-size: 13px;
+    }
+    
+    .footer-bottom {
+        font-size: 12px;
+        padding-top: 16px;
+    }
+}
+
+
+/* Улучшенный стиль кнопки Telegram */
+.telegram-btn {
+    box-shadow: 0 3px 10px rgba(61, 214, 140, 0.25) !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+}
+
+.telegram-btn:hover {
+    box-shadow: 0 5px 15px rgba(61, 214, 140, 0.35) !important;
+}
+
+/* Улучшенный стиль главной кнопки */
+.cta-button {
+    box-shadow: 0 4px 15px rgba(61, 214, 140, 0.3) !important;
+    border-radius: 10px !important;
+    padding: 12px 28px !important;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(61, 214, 140, 0.4) !important;
+}
+
+/* Анимация плавающих картинок вверх-вниз */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.gift-image {
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Все картинки одновременно без задержек */
+.gift-card:nth-child(1) .gift-image,
+.gift-card:nth-child(2) .gift-image,
+.gift-card:nth-child(3) .gift-image,
+.gift-card:nth-child(4) .gift-image,
+.gift-card:nth-child(5) .gift-image,
+.gift-card:nth-child(6) .gift-image {
+    animation-delay: 0s;
+}
+
+
+/* Обновленный стиль рейтинга */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-left: -12px;
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.avatar-1 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.avatar-2 {
+    background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
+}
+
+.avatar-3 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.avatar-4 {
+    background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%);
+}
+
+.rating-text {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.rating-text strong {
+    font-weight: 800;
+    color: var(--text-light);
+}
+
+.rating-text .stars {
+    display: inline;
+    font-size: 16px;
+    color: #f59e0b;
+}
+
+
+/* Эффект увеличения иконки Telegram при наведении */
+.telegram-icon {
+    transition: transform 0.3s ease;
+}
+
+.telegram-icon:hover {
+    transform: scale(1.06);
+}
+
+.telegram-icon svg {
+    transition: transform 0.3s ease;
+}
+
+
+/* Увеличенные шрифты */
+body {
+    font-size: 16px !important;
+}
+
+.hero-text h1 {
+    font-size: 52px !important;
+}
+
+.hero-text p {
+    font-size: 19px !important;
+}
+
+.section-header h2 {
+    font-size: 44px !important;
+}
+
+.section-header p {
+    font-size: 19px !important;
+}
+
+.gift-info h3 {
+    font-size: 22px !important;
+}
+
+.gift-info .collectible {
+    font-size: 15px !important;
+}
+
+/* Плавное появление карточек при скролле */
+.gift-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gift-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Задержки для каждой карточки */
+.gift-card:nth-child(1).fade-in {
+    transition-delay: 0.1s;
+}
+
+.gift-card:nth-child(2).fade-in {
+    transition-delay: 0.2s;
+}
+
+.gift-card:nth-child(3).fade-in {
+    transition-delay: 0.3s;
+}
+
+.gift-card:nth-child(4).fade-in {
+    transition-delay: 0.4s;
+}
+
+.gift-card:nth-child(5).fade-in {
+    transition-delay: 0.5s;
+}
+
+.gift-card:nth-child(6).fade-in {
+    transition-delay: 0.6s;
+}
+
+
+/* Обновленный дизайн баннера статистики */
+.stats-banner {
+    background: linear-gradient(135deg, #3dd68c 0%, #2eb872 100%) !important;
+    border-radius: 28px !important;
+    padding: 48px 40px !important;
+    box-shadow: 0 20px 60px rgba(61, 214, 140, 0.25) !important;
+}
+
+.stat-number {
+    font-size: 48px !important;
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -1px !important;
+}
+
+.stat-label {
+    font-size: 15px !important;
+    opacity: 0.95 !important;
+    font-weight: 500 !important;
+}
+
+/* Плавное появление всех секций */
+.section-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-fade-in.animate-header {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.section-fade-in.animate-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Плавное появление карточек преимуществ */
+.advantage-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.advantage-card.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.advantage-card.animate-in.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.advantage-card.animate-in:nth-child(1).fade-in {
+    transition-delay: 0.1s;
+}
+
+.advantage-card.animate-in:nth-child(2).fade-in {
+    transition-delay: 0.2s;
+}
+
+.advantage-card.animate-in:nth-child(3).fade-in {
+    transition-delay: 0.3s;
+}
+
+.advantage-card.animate-in:nth-child(4).fade-in {
+    transition-delay: 0.4s;
+}
+
+/* Плавное появление шагов процесса */
+.process-step {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.process-step.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.process-step.animate-in.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.process-step.animate-in:nth-child(1).fade-in {
+    transition-delay: 0.1s;
+}
+
+.process-step.animate-in:nth-child(3).fade-in {
+    transition-delay: 0.2s;
+}
+
+.process-step.animate-in:nth-child(5).fade-in {
+    transition-delay: 0.3s;
+}
+
+.process-step.animate-in:nth-child(7).fade-in {
+    transition-delay: 0.4s;
+}
+
+/* Плавное появление FAQ */
+.faq-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.faq-item.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.faq-item.animate-in.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-item.animate-in:nth-child(1).fade-in {
+    transition-delay: 0.1s;
+}
+
+.faq-item.animate-in:nth-child(2).fade-in {
+    transition-delay: 0.15s;
+}
+
+.faq-item.animate-in:nth-child(3).fade-in {
+    transition-delay: 0.2s;
+}
+
+.faq-item.animate-in:nth-child(4).fade-in {
+    transition-delay: 0.25s;
+}
+
+.faq-item.animate-in:nth-child(5).fade-in {
+    transition-delay: 0.3s;
+}
+
+
+/* Обновленный стиль бейджа с галочкой */
+.gift-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.gift-badge svg {
+    flex-shrink: 0;
+}
+
+
+/* Обновленный стиль стрелочки FAQ */
+.faq-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(61, 214, 140, 0.1);
+    color: var(--primary-green);
+    transition: all 0.3s ease;
+}
+
+.faq-toggle svg {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    background: var(--primary-green);
+    color: #000;
+}
+
+.faq-item.active .faq-toggle svg {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-toggle svg path {
+    stroke: #000;
+}
+
+.faq-toggle:hover {
+    background: rgba(61, 214, 140, 0.2);
+}
+
+.faq-item.active .faq-toggle:hover {
+    background: var(--dark-green);
+}
+
+
+/* Анимированная пунктирная линия между шагами */
+.process-connector {
+    position: relative;
+    width: 80px;
+    height: 2px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.process-connector::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(61, 214, 140, 0.4) 0px,
+        rgba(61, 214, 140, 0.4) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    animation: dash 2s linear infinite;
+}
+
+@keyframes dash {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-16px);
+    }
+}
+
+/* Обновленные номера шагов */
+.step-number {
+    width: 64px !important;
+    height: 64px !important;
+    background: var(--bg-card) !important;
+    color: var(--primary-green) !important;
+    border: 3px solid var(--primary-green) !important;
+    border-radius: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    margin: 0 auto 20px !important;
+    box-shadow: 0 4px 12px rgba(61, 214, 140, 0.2) !important;
+}
+
+
+/* Обновленный дизайн карточек преимуществ */
+.advantage-card {
+    background: var(--bg-card) !important;
+    padding: 32px 28px !important;
+    border-radius: 16px !important;
+    text-align: left !important;
+    box-shadow: 0 2px 8px rgba(61, 214, 140, 0.06) !important;
+    border: 1px solid rgba(61, 214, 140, 0.1) !important;
+}
+
+.advantage-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(61, 214, 140, 0.15) !important;
+    border-color: rgba(61, 214, 140, 0.3) !important;
+}
+
+.advantage-icon {
+    width: 56px !important;
+    height: 56px !important;
+    background: linear-gradient(135deg, rgba(61, 214, 140, 0.2) 0%, rgba(46, 184, 114, 0.1) 100%) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+}
+
+.advantage-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.advantage-icon svg path,
+.advantage-icon svg circle {
+    fill: var(--primary-green) !important;
+    stroke: var(--primary-green) !important;
+}
+
+.advantage-card h3 {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    color: var(--text-light) !important;
+}
+
+.advantage-card p {
+    color: var(--text-gray) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+
+/* RTL Support для арабского языка */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+[dir="rtl"] .navbar {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .telegram-btn,
+[dir="rtl"] .cta-button {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+[dir="rtl"] .rating {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .avatars {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .avatar {
+    margin-left: 0;
+    margin-right: -12px;
+}
+
+[dir="rtl"] .avatar:first-child {
+    margin-right: 0;
+}
+
+[dir="rtl"] .gift-badge {
+    left: auto;
+    right: 16px;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .advantage-card {
+    text-align: right;
+}
+
+[dir="rtl"] .faq-question {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-content {
+    direction: rtl;
+}
+
+[dir="rtl"] .footer-links {
+    flex-direction: row-reverse;
+}

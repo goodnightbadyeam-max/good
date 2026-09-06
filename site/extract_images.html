@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Извлечение изображений с сайта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0088cc;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #0088cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #006699;
+        }
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .image-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .image-item button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Извлечение изображений NFT</h1>
+        
+        <div class="info">
+            <strong>Инструкция:</strong>
+            <ol>
+                <li>Введите URL сайта (по умолчанию: https://lumavouch.duckdns.org/)</li>
+                <li>Нажмите "Загрузить изображения"</li>
+                <li>Сохраните каждое изображение, нажав на кнопку под ним</li>
+                <li>Поместите сохраненные изображения в папку <code>images/</code></li>
+            </ol>
+        </div>
+
+        <input 
+            type="text" 
+            id="urlInput" 
+            placeholder="URL сайта" 
+            value="https://lumavouch.duckdns.org/"
+        >
+        
+        <button onclick="loadImages()">Загрузить изображения</button>
+        <button onclick="clearImages()">Очистить</button>
+        
+        <div id="status" class="status"></div>
+        
+        <div id="imagesGrid" class="images-grid"></div>
+    </div>
+
+    <script>
+        async function loadImages() {
+            const url = document.getElementById('urlInput').value;
+            const status = document.getElementById('status');
+            const grid = document.getElementById('imagesGrid');
+            
+            status.className = 'status';
+            status.textContent = 'Загрузка...';
+            status.style.display = 'block';
+            grid.innerHTML = '';
+            
+            try {
+                // Загружаем страницу через CORS proxy
+                const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+                const response = await fetch(proxyUrl);
+                const html = await response.text();
+                
+                // Парсим HTML
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Находим все изображения
+                const images = doc.querySelectorAll('img');
+                
+                if (images.length === 0) {
+                    status.className = 'status error';
+                    status.textContent = 'Изображения не найдены';
+                    return;
+                }
+                
+                let count = 0;
+                images.forEach((img, index) => {
+                    const src = img.getAttribute('src');
+                    const alt = img.getAttribute('alt') || `image_${index + 1}`;
+                    
+                    if (src && src.startsWith('data:image')) {
+                        count++;
+                        const imageItem = document.createElement('div');
+                        imageItem.className = 'image-item';
+                        imageItem.innerHTML = `
+                            <img src="${src}" alt="${alt}">
+                            <p><strong>${alt}</strong></p>
+                            <button onclick="downloadImage('${src}', '${alt}')">
+                                Скачать ${alt}
+                            </button>
+                        `;
+                        grid.appendChild(imageItem);
+                    }
+                });
+                
+                if (count > 0) {
+                    status.className = 'status success';
+                    status.textContent = `Найдено ${count} изображений`;
+                } else {
+                    status.className = 'status error';
+                    status.textContent = 'Base64 изображения не найдены';
+                }
+                
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = `Ошибка: ${error.message}. Попробуйте открыть оригинальный сайт и вручную сохранить изображения (ПКМ → Сохранить изображение).`;
+            }
+        }
+        
+        function downloadImage(dataUrl, filename) {
+            // Создаем временную ссылку для скачивания
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = filename.toLowerCase().replace(/[^a-z0-9]/g, '_') + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        function clearImages() {
+            document.getElementById('imagesGrid').innerHTML = '';
+            document.getElementById('status').style.display = 'none';
+        }
+
+        // Альтернативный метод - загрузка напрямую с сайта
+        function loadImagesDirectly() {
+            const images = [
+                {name: 'Plush Pepe', url: 'https://lumavouch.duckdns.org/static/images/plush_pepe.png'},
+                {name: 'Eternal Rose', url: 'https://lumavouch.duckdns.org/static/images/eternal_rose.png'},
+                {name: 'Durov\'s Cap', url: 'https://lumavouch.duckdns.org/static/images/durov_cap.png'},
+                {name: 'Mighty Arm', url: 'https://lumavouch.duckdns.org/static/images/mighty_arm.png'},
+                {name: 'Heroic Helmet', url: 'https://lumavouch.duckdns.org/static/images/heroic_helmet.png'},
+                {name: 'Scared Cat', url: 'https://lumavouch.duckdns.org/static/images/scared_cat.png'},
+            ];
+            
+            const grid = document.getElementById('imagesGrid');
+            grid.innerHTML = '';
+            
+            images.forEach(img => {
+                const imageItem = document.createElement('div');
+                imageItem.className = 'image-item';
+                imageItem.innerHTML = `
+                    <img src="${img.url}" alt="${img.name}" crossorigin="anonymous">
+                    <p><strong>${img.name}</strong></p>
+                    <button onclick="window.open('${img.url}', '_blank')">
+                        Открыть изображение
+                    </button>
+                `;
+                grid.appendChild(imageItem);
+            });
+        }
+    </script>
+</body>
+</html>
